@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace SuperRootsApplication
 {
-    public partial class Form1 : Form
+    public partial class SuperRootCalculator : Form
     {
-        public Form1()
+        public SuperRootCalculator()
         {
             InitializeComponent();
         }
@@ -32,6 +32,26 @@ namespace SuperRootsApplication
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            label5.Text = trackBar1.Value.ToString();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }

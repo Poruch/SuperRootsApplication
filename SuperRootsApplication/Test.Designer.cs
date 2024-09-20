@@ -39,7 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
-            this.chec = new System.Windows.Forms.CheckBox();
+            this.check = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -146,16 +146,16 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Введите точность (знаки после запятой)";
             // 
-            // chec
+            // check
             // 
-            this.chec.AutoSize = true;
-            this.chec.Location = new System.Drawing.Point(223, 340);
-            this.chec.Name = "chec";
-            this.chec.Size = new System.Drawing.Size(136, 17);
-            this.chec.TabIndex = 11;
-            this.chec.Text = "Аналитические корни";
-            this.chec.UseVisualStyleBackColor = true;
-            this.chec.CheckedChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.check.AutoSize = true;
+            this.check.Location = new System.Drawing.Point(223, 340);
+            this.check.Name = "check";
+            this.check.Size = new System.Drawing.Size(136, 17);
+            this.check.TabIndex = 11;
+            this.check.Text = "Аналитические корни";
+            this.check.UseVisualStyleBackColor = true;
+            this.check.CheckedChanged += new System.EventHandler(this.checkBox1_Changed);
             // 
             // label5
             // 
@@ -185,7 +185,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.chec);
+            this.Controls.Add(this.check);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.label3);
@@ -218,7 +218,7 @@
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label4;
         internal System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckBox chec;
+        private System.Windows.Forms.CheckBox check;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
     }

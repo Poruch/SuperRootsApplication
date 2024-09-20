@@ -1,9 +1,11 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Security.Policy;
 namespace SuperRootsApplication
 {
     public class RootCalculator
     {
+        List<string> specificFunction = new List<string>() {"sin","cos","ln"};
         public double Sqrt(double x, int precision = 15)
         {
             return Math.Round(Math.Sqrt(x), precision);
@@ -18,8 +20,20 @@ namespace SuperRootsApplication
                 Math.Round(Math.Pow(r, 0.5f) * Math.Cos(f), precision),
                 Math.Round(Math.Pow(r, 0.5f) * Math.Sin(f), precision));
         }
-        public string ANALRoot()
+        public double LongSqrt(double x, int precision = 15)
         {
+            List<int> ints = new List<int>();
+            return 0;
+        }
+
+        public string ANALRoot(string s)
+        {
+            
+            foreach(char i in s)
+            {
+
+            }
+
             return "";
         }
 

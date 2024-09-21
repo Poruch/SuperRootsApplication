@@ -92,19 +92,32 @@ namespace SuperRootsApplication
                 label1.Text = "Введите выражение";
                 textBox2.Enabled = false;                
                 label3.Text = "";
-
-                //trackBar1.Enabled = false;
-                //label4.Text = "";
+                checkBox1.Enabled = false;
             }
             else
             {
                 label1.Text = "Введите число";
+                textBox2.Enabled = false;
+                label3.Text = "";
+                checkBox1.Enabled = true;
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                label1.Text = "Введите вещественную часть";
                 textBox2.Enabled = true;
-                label3.Text = "Введите мнимую часть числа";
-
-
-                //trackBar1.Enabled = true;
-                //label4.Text = "Введите точность (знаки после запятой)";
+                label3.Text = "Введите мнимую часть";
+                check.Enabled = false;
+            }
+            else
+            {
+                label1.Text = "Введите число";
+                textBox2.Enabled = false;
+                label3.Text = "";
+                check.Enabled = true;
             }
         }
     }

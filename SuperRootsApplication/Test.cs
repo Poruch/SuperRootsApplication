@@ -15,29 +15,42 @@ namespace SuperRootsApplication
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bool real = int.TryParse(textBox1.Text, out int re);
-            bool image = int.TryParse(textBox2.Text, out int im);
-            if (real && image)
+            if (!(checkBox1.Checked || check.Checked))
             {
-                var t = RootCalculator.ISqrt(re, im, trackBar1.Value);
-                label6.Text = "+/-("+ t.Item1.ToString() + "+"+ t.Item2.ToString() + "i)";
+                bool real = int.TryParse(textBox1.Text, out int re);              
+                if (real)
+                {
+                    label6.Text = RootCalculator.Sqrt(re, trackBar1.Value).ToString();
+                }
             }
-            else if (real)
-            {
-                label6.Text = RootCalculator.Sqrt(re, trackBar1.Value).ToString();
-            }
-            else if (image)
-            {
-                var t = RootCalculator.ISqrt(0, im, trackBar1.Value);
-                label6.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)" ;
-            }
-            if (!real)
-            {
-                
-            }
-            if (!image)
-            {
+            else if (check.Checked) {
 
+            }
+            else if (checkBox1.Checked) {
+                bool real = int.TryParse(textBox1.Text, out int re);
+                bool image = int.TryParse(textBox2.Text, out int im);
+                if (real && image)
+                {
+                    var t = RootCalculator.ISqrt(re, im, trackBar1.Value);
+                    label6.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
+                }
+                else if (real)
+                {
+                    label6.Text = RootCalculator.Sqrt(re, trackBar1.Value).ToString();
+                }
+                else if (image)
+                {
+                    var t = RootCalculator.ISqrt(0, im, trackBar1.Value);
+                    label6.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
+                }
+                if (!real)
+                {
+
+                }
+                if (!image)
+                {
+
+                }
             }
         }
 
@@ -87,38 +100,56 @@ namespace SuperRootsApplication
 
         private void checkBox1_Changed(object sender, EventArgs e)
         {
+            textBox1.Text = "";
             if (check.Checked)
             {
                 label1.Text = "Введите выражение";
-                textBox2.Enabled = false;                
                 label3.Text = "";
+
+                textBox2.Text = "";
+                textBox2.Enabled = false;     
+                
                 checkBox1.Enabled = false;
             }
             else
             {
                 label1.Text = "Введите число";
-                textBox2.Enabled = false;
                 label3.Text = "";
+
+                textBox2.Text = "";
+                textBox2.Enabled = false;               
                 checkBox1.Enabled = true;
             }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            textBox1.Text = "";
             if (checkBox1.Checked)
             {
-                label1.Text = "Введите вещественную часть";
-                textBox2.Enabled = true;
                 label3.Text = "Введите мнимую часть";
+                label1.Text = "Введите вещественную часть";
+
+                textBox2.Enabled = true;
+                textBox2.Text = "";
+                
                 check.Enabled = false;
             }
             else
             {
                 label1.Text = "Введите число";
-                textBox2.Enabled = false;
                 label3.Text = "";
+
+                textBox2.Text = "";
+                textBox2.Enabled = false;
+                
                 check.Enabled = true;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

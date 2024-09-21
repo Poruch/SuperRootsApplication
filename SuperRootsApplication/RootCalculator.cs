@@ -26,13 +26,23 @@ namespace SuperRootsApplication
             return 0;
         }
 
+
+
+
+        struct Member
+        {
+            Member(int start,int last)
+            {
+                x = start;
+                y = last;
+            }
+            public int x;
+            public int y;
+        }
         public static string ANALRoot(string s)
         {
             
-            foreach(char i in s)
-            {
-
-            }
+            
 
             return "";
         }

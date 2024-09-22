@@ -151,5 +151,32 @@ namespace SuperRootsApplication
         {
 
         }
+        about_the_program about_the_program;
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            about_the_program = new about_the_program();
+            about_the_program.Show();
+        }
+        users_guide users_guide;
+        private void руководствоПользователяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            users_guide = new users_guide();
+            users_guide.Show();
+        }
+
+        private void SuperRootCalculator_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void языкToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void выбратьДрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

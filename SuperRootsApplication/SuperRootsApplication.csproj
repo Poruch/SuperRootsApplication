@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Error.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Error.Designer.cs">
+      <DependentUpon>Error.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LanguageLoader.cs" />
     <Compile Include="RootCalculator.cs" />
+    <Compile Include="справка_о программе.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="справка_о программе.Designer.cs">
+      <DependentUpon>справка_о программе.cs</DependentUpon>
+    </Compile>
+    <Compile Include="справка_руководство пользователя.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="справка_руководство пользователя.Designer.cs">
+      <DependentUpon>справка_руководство пользователя.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Error.resx">
+      <DependentUpon>Error.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,6 +104,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="справка_о программе.resx">
+      <DependentUpon>справка_о программе.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="справка_руководство пользователя.resx">
+      <DependentUpon>справка_руководство пользователя.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

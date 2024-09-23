@@ -58,7 +58,7 @@
             // 
             // ButtonForCalculate
             // 
-            this.ButtonForCalculate.Location = new System.Drawing.Point(415, 212);
+            this.ButtonForCalculate.Location = new System.Drawing.Point(368, 262);
             this.ButtonForCalculate.Name = "ButtonForCalculate";
             this.ButtonForCalculate.Size = new System.Drawing.Size(75, 23);
             this.ButtonForCalculate.TabIndex = 0;
@@ -69,7 +69,7 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(273, 137);
+            this.textBox1.Location = new System.Drawing.Point(226, 147);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
@@ -79,16 +79,17 @@
             // LabelForTextBox1
             // 
             this.LabelForTextBox1.AutoSize = true;
-            this.LabelForTextBox1.Location = new System.Drawing.Point(281, 121);
+            this.LabelForTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelForTextBox1.Location = new System.Drawing.Point(220, 93);
             this.LabelForTextBox1.Name = "LabelForTextBox1";
-            this.LabelForTextBox1.Size = new System.Drawing.Size(81, 13);
+            this.LabelForTextBox1.Size = new System.Drawing.Size(212, 31);
             this.LabelForTextBox1.TabIndex = 2;
             this.LabelForTextBox1.Text = "Введите число";
             // 
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(273, 186);
+            this.textBox2.Location = new System.Drawing.Point(226, 209);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 3;
@@ -97,9 +98,10 @@
             // LabelForTextBox2
             // 
             this.LabelForTextBox2.AutoSize = true;
-            this.LabelForTextBox2.Location = new System.Drawing.Point(281, 170);
+            this.LabelForTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelForTextBox2.Location = new System.Drawing.Point(223, 170);
             this.LabelForTextBox2.Name = "LabelForTextBox2";
-            this.LabelForTextBox2.Size = new System.Drawing.Size(0, 13);
+            this.LabelForTextBox2.Size = new System.Drawing.Size(0, 31);
             this.LabelForTextBox2.TabIndex = 8;
             // 
             // trackBar1
@@ -114,16 +116,17 @@
             // AccuracyLabel
             // 
             this.AccuracyLabel.AutoSize = true;
+            this.AccuracyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AccuracyLabel.Location = new System.Drawing.Point(9, 377);
             this.AccuracyLabel.Name = "AccuracyLabel";
-            this.AccuracyLabel.Size = new System.Drawing.Size(54, 13);
+            this.AccuracyLabel.Size = new System.Drawing.Size(323, 20);
             this.AccuracyLabel.TabIndex = 10;
-            this.AccuracyLabel.Text = "Точность";
+            this.AccuracyLabel.Text = "Введите точность (знаки после запятой)";
             // 
             // check
             // 
             this.check.AutoSize = true;
-            this.check.Location = new System.Drawing.Point(273, 212);
+            this.check.Location = new System.Drawing.Point(226, 243);
             this.check.Name = "check";
             this.check.Size = new System.Drawing.Size(136, 17);
             this.check.TabIndex = 11;
@@ -145,7 +148,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(412, 170);
+            this.label6.Location = new System.Drawing.Point(339, 323);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 24);
             this.label6.TabIndex = 13;
@@ -154,7 +157,7 @@
             // LabelForAnswer
             // 
             this.LabelForAnswer.AutoSize = true;
-            this.LabelForAnswer.Location = new System.Drawing.Point(403, 147);
+            this.LabelForAnswer.Location = new System.Drawing.Point(270, 331);
             this.LabelForAnswer.Name = "LabelForAnswer";
             this.LabelForAnswer.Size = new System.Drawing.Size(40, 13);
             this.LabelForAnswer.TabIndex = 14;
@@ -163,7 +166,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(273, 235);
+            this.checkBox1.Location = new System.Drawing.Point(226, 266);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(130, 17);
             this.checkBox1.TabIndex = 15;
@@ -179,7 +182,7 @@
             this.языкToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(734, 24);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -194,7 +197,7 @@
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             // 
             // справкаToolStripMenuItem
@@ -273,7 +276,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(734, 450);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.LabelForAnswer);
             this.Controls.Add(this.label6);
@@ -288,6 +291,7 @@
             this.Controls.Add(this.ButtonForCalculate);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "SuperRootCalculator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SuperRootCalculator";

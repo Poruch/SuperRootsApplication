@@ -16,5 +16,11 @@ namespace SuperRootsApplication
         {
             InitializeComponent();
         }
+
+        private void Error_Load(object sender, EventArgs e)
+        {
+            ClientSize = new System.Drawing.Size(411, 164);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+        }
     }
 }

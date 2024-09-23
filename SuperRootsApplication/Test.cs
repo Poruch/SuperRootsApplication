@@ -232,7 +232,8 @@ namespace SuperRootsApplication
 
         private void SuperRootCalculator_Load(object sender, EventArgs e)
         {
-
+            ClientSize = new System.Drawing.Size(750,489);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void языкToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Linq;
-using System.Reflection.Emit;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 
 namespace SuperRootsApplication
@@ -12,10 +12,28 @@ namespace SuperRootsApplication
         public SuperRootCalculator()
         {
             string directory = AppDomain.CurrentDomain.BaseDirectory;
-            LanguageLoader.SetTranslation(directory + "/RussianLanguage.txt");
+            var res = LanguageLoader.SetTranslation(directory + "/RussianLanguage.txt");          
+            
             InitializeComponent();
+            SetTranslate(res);
         }
-
+        private void SetTranslate(List<string> res)
+        {
+            ToolStripMenuItem.Text = res[0];
+            выходToolStripMenuItem.Text = res[1];
+            оПрограммеToolStripMenuItem.Text = res[2];
+            руководствоПользователяToolStripMenuItem.Text = res[3];
+            языкToolStripMenuItem.Text = res[4];
+            справкаToolStripMenuItem.Text += res[5];
+            label1.Text = res[6];
+            label1.Text = res[7];
+            label3.Text = res[8];
+            label3.Text = "";
+            button1.Text = res[9];
+            check.Text = res[10];
+            checkBox1.Text = res[11];
+            label4.Text = res[12];
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             if (!(checkBox1.Checked || check.Checked))

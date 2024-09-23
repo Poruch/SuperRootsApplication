@@ -11,6 +11,8 @@ namespace SuperRootsApplication
     {
         public SuperRootCalculator()
         {
+            string directory = AppDomain.CurrentDomain.BaseDirectory;
+            LanguageLoader.SetTranslation(directory + "/RussianLanguage.txt");
             InitializeComponent();
         }
 

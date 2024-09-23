@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Security.Policy;
-using MathNet.Symbolics;
-using static FParsec.ErrorMessage;
 using Expr = MathNet.Symbolics.SymbolicExpression; 
 
 namespace SuperRootsApplication

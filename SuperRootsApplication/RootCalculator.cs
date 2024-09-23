@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Security.Policy;
+using MathNet.Symbolics;
+using Expr = MathNet.Symbolics.SymbolicExpression; 
+
 namespace SuperRootsApplication
 {
     public class RootCalculator
     {
-        List<string> specificFunction = new List<string>() {"sin","cos","ln"};
+       
         public static double Sqrt(double x, int precision = 15)
         {
             return Math.Round(Math.Sqrt(x), precision);
@@ -29,22 +33,44 @@ namespace SuperRootsApplication
 
 
 
-        struct Member
-        {
-            Member(int start,int last)
-            {
-                x = start;
-                y = last;
-            }
-            public int x;
-            public int y;
-        }
+        
         public static string ANALRoot(string s)
         {
-            
-            
+            var s1 = Expr.Parse(s);
+            var simplified = s1.RationalSimplify(s1);
+            string res = simplified.ToString();
 
-            return "";
+            var members = res.Split('+','-');
+            foreach (var i in members)
+            {
+                Console.Write(i);
+            }
+                if (!(members.Length == 3 || members.Length == 1))
+            {
+                return "Ош.";
+            }
+            else if(members.Length == 1)
+            {
+                int b = members[0].IndexOf("^");
+                if (b != -1)
+                {
+                    return members[0].Substring(0, b) + "   " + members[0];
+                }
+                else
+                    return "Ош.";
+            }
+            else if (members.Length == 3)
+            {
+                int b = members[0].IndexOf("^");
+                if (b != -1)
+                {
+                    return members[0].Substring(0, b);
+                }
+                else
+                    return "Ош.";
+
+            }
+            return "Ош.";
         }
 
     }

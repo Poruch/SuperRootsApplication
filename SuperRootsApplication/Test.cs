@@ -4,6 +4,7 @@ using System.Reflection.Emit;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
+
 namespace SuperRootsApplication
 {
     public partial class SuperRootCalculator : Form
@@ -24,7 +25,8 @@ namespace SuperRootsApplication
                 }
             }
             else if (check.Checked) {
-
+                var res = RootCalculator.ANALRoot(textBox1.Text);
+                label6.Text = $"{res}";
             }
             else if (checkBox1.Checked) {
                 bool real = int.TryParse(textBox1.Text, out int re);

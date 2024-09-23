@@ -18,19 +18,19 @@ namespace SuperRootsApplication
         {
             if (!(checkBox1.Checked || check.Checked))
             {
-                bool real = int.TryParse(textBox1.Text, out int re);              
+                bool real = double.TryParse(textBox1.Text, out double re);              
                 if (real)
                 {
                     label6.Text = RootCalculator.Sqrt(re, trackBar1.Value).ToString();
                 }
             }
             else if (check.Checked) {
-                var res = RootCalculator.ANALRoot(textBox1.Text);
+                var res = RootCalculator.ANALRoot(textBox1.Text, trackBar1.Value);
                 label6.Text = $"{res}";
             }
             else if (checkBox1.Checked) {
-                bool real = int.TryParse(textBox1.Text, out int re);
-                bool image = int.TryParse(textBox2.Text, out int im);
+                bool real = double.TryParse(textBox1.Text, out double re);
+                bool image = double.TryParse(textBox2.Text, out double im);
                 if (real && image)
                 {
                     var t = RootCalculator.ISqrt(re, im, trackBar1.Value);
@@ -132,8 +132,11 @@ namespace SuperRootsApplication
                 label3.Text = "Введите мнимую часть";
                 label1.Text = "Введите вещественную часть";
 
+                textBox1.Text = "0";
+
+
                 textBox2.Enabled = true;
-                textBox2.Text = "";
+                textBox2.Text = "0";
                 
                 check.Enabled = false;
             }

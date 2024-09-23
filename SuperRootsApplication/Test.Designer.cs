@@ -56,7 +56,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(452, 269);
+            this.button1.Location = new System.Drawing.Point(409, 212);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -86,7 +86,7 @@
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(452, 174);
+            this.textBox2.Location = new System.Drawing.Point(273, 186);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 3;
@@ -102,7 +102,7 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(213, 269);
+            this.trackBar1.Location = new System.Drawing.Point(12, 393);
             this.trackBar1.Maximum = 15;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(104, 45);
@@ -112,7 +112,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(213, 232);
+            this.label4.Location = new System.Drawing.Point(9, 377);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(213, 13);
             this.label4.TabIndex = 10;
@@ -121,7 +121,7 @@
             // check
             // 
             this.check.AutoSize = true;
-            this.check.Location = new System.Drawing.Point(213, 154);
+            this.check.Location = new System.Drawing.Point(273, 212);
             this.check.Name = "check";
             this.check.Size = new System.Drawing.Size(136, 17);
             this.check.TabIndex = 11;
@@ -132,7 +132,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(213, 301);
+            this.label5.Location = new System.Drawing.Point(12, 425);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(13, 13);
             this.label5.TabIndex = 12;
@@ -143,7 +143,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(529, 221);
+            this.label6.Location = new System.Drawing.Point(412, 170);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 24);
             this.label6.TabIndex = 13;
@@ -152,7 +152,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(460, 229);
+            this.label7.Location = new System.Drawing.Point(403, 147);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 14;
@@ -161,7 +161,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(213, 177);
+            this.checkBox1.Location = new System.Drawing.Point(273, 235);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(130, 17);
             this.checkBox1.TabIndex = 15;
@@ -232,13 +232,13 @@
             // русскийЯзыкToolStripMenuItem
             // 
             this.русскийЯзыкToolStripMenuItem.Name = "русскийЯзыкToolStripMenuItem";
-            this.русскийЯзыкToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.русскийЯзыкToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.русскийЯзыкToolStripMenuItem.Text = "Русский язык";
             // 
             // englishLanguageToolStripMenuItem
             // 
             this.englishLanguageToolStripMenuItem.Name = "englishLanguageToolStripMenuItem";
-            this.englishLanguageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.englishLanguageToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.englishLanguageToolStripMenuItem.Text = "English language";
             // 
             // выбратьДрToolStripMenuItem

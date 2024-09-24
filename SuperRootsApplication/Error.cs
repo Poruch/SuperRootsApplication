@@ -12,9 +12,10 @@ namespace SuperRootsApplication
 {
     public partial class Error : Form
     {
-        public Error()
-        {
+        public Error(string s)
+        {            
             InitializeComponent();
+            label1.Text = s;
         }
 
         private void Error_Load(object sender, EventArgs e)

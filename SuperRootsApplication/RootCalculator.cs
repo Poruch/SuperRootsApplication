@@ -43,7 +43,7 @@ namespace SuperRootsApplication
             }
             catch
             {
-                return "Неправильный формат ввода";
+                return SuperRootCalculator.errorFormat[SuperRootCalculator.NumberLanguage];
             }            
             var simplified = s1.RationalSimplify(s1);
             string res = simplified.ToString();
@@ -55,7 +55,7 @@ namespace SuperRootsApplication
             }
             if (!(members.Length == 1))
             {
-                return "Такое программа посчитать не может";
+                return SuperRootCalculator.errorCalculate[SuperRootCalculator.NumberLanguage];
             }
             else if(members.Length == 1)
             {
@@ -126,18 +126,7 @@ namespace SuperRootsApplication
                 }
 
             }
-            else if (members.Length == 3)
-            {
-                int b = members[0].IndexOf("^");
-                if (b != -1)
-                {
-                    return members[0].Substring(0, b);
-                }
-                else
-                    return "Такое программа посчитать не может";
-
-            }
-            return "Такое программа посчитать не может";
+            return SuperRootCalculator.errorCalculate[SuperRootCalculator.NumberLanguage];
         }
 
     }

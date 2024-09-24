@@ -107,7 +107,7 @@
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(12, 393);
-            this.trackBar1.Maximum = 15;
+            this.trackBar1.Maximum = 13;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(104, 45);
             this.trackBar1.TabIndex = 9;
@@ -117,11 +117,11 @@
             // 
             this.AccuracyLabel.AutoSize = true;
             this.AccuracyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AccuracyLabel.Location = new System.Drawing.Point(9, 377);
+            this.AccuracyLabel.Location = new System.Drawing.Point(12, 370);
             this.AccuracyLabel.Name = "AccuracyLabel";
-            this.AccuracyLabel.Size = new System.Drawing.Size(323, 20);
+            this.AccuracyLabel.Size = new System.Drawing.Size(80, 20);
             this.AccuracyLabel.TabIndex = 10;
-            this.AccuracyLabel.Text = "Введите точность (знаки после запятой)";
+            this.AccuracyLabel.Text = "Точность";
             // 
             // check
             // 
@@ -197,7 +197,7 @@
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 

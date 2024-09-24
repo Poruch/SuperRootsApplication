@@ -4,13 +4,15 @@ using System.Windows.Forms;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+using FParsec;
 
 
 namespace SuperRootsApplication
 {
     public partial class SuperRootCalculator : Form
     {
-        int NumberLanguage = 0;
+        
+        public static int NumberLanguage = 0;
         int Nlanguage
         {
             get
@@ -41,39 +43,36 @@ namespace SuperRootsApplication
 
                 LabelForTextBox1.Text = sqrt[Nlanguage];
                 LabelForTextBox2.Text = "";
-                
-
             }
         }
     
         public SuperRootCalculator()
         {
-            string directory = AppDomain.CurrentDomain.BaseDirectory;
-            //var res = LanguageLoader.SetTranslation(directory + "/RussianLanguage.txt"); 
+           
             InitializeComponent();
-
-            //SetTranslate(res);
         }
 
-        List<string> file = new List<string>() { "Файл","File" };
-        List<string> exit = new List<string>() { "Выход", "Exit" };
-        List<string> aboutProgramm = new List<string>() { "О программе", "About the program" };
-        List<string> userManual = new List<string>() { "Руководство пользователя", "User manual" };
-        List<string> language = new List<string>() { "Язык", "Language" };
-        List<string> help = new List<string>() { "Справка", "Help" };
-        List<string> answer = new List<string>() { "Ответ:", "Result:" };
-        List<string> sqrt = new List<string>() { "Введите число", "Enter a number" };
-        List<string> isqrtRe = new List<string>() { "Введите вещественную часть", "Enter the real part" };
-        List<string> isqrtIm = new List<string>() { "Введите мнимую часть", "nter the imaginary part" };
-        List<string> ANALsqrt = new List<string>() { "Введите выражение", "Enter the expression" };
-        List<string> calculate = new List<string>() { "Расчитать", "Calculate" };
-        List<string> analyticalRoots = new List<string>() { "Аналитические корни", "Analytical roots" };
-        List<string> complexRoots = new List<string>() { "Комплексные корни", "Complex roots" };
-        List<string> accuracy = new List<string>() { "Точность", "Accuracy" };
+        static List<string> file = new List<string>() { "Файл","File" };
+        static List<string> exit = new List<string>() { "Выход", "Exit" };
+        static List<string> aboutProgramm = new List<string>() { "О программе", "About the program" };
+        static List<string> userManual = new List<string>() { "Руководство пользователя", "User manual" };
+        static List<string> language = new List<string>() { "Язык", "Language" };
+        static List<string> help = new List<string>() { "Справка", "Help" };
+        static List<string> answer = new List<string>() { "Ответ:", "Result:" };
+        static List<string> sqrt = new List<string>() { "Введите число", "Enter a number" };
+        static List<string> isqrtRe = new List<string>() { "Введите вещественную часть", "Enter the real part" };
+        static List<string> isqrtIm = new List<string>() { "Введите мнимую часть", "nter the imaginary part" };
+        static List<string> ANALsqrt = new List<string>() { "Введите выражение", "Enter the expression" };
+        static List<string> calculate = new List<string>() { "Расчитать", "Calculate" };
+        static List<string> analyticalRoots = new List<string>() { "Аналитические корни", "Analytical roots" };
+        static List<string> complexRoots = new List<string>() { "Комплексные корни", "Complex roots" };
+        static List<string> accuracy = new List<string>() { "Точность", "Accuracy" };
 
-        static List<string> errorNonNumber = new List<string>() { "Точность", "Accuracy" };
-        static List<string> errorFormat = new List<string>() { "Точность", "Accuracy" };
-        static List<string> errorCalculate = new List<string>() { "Точность", "Accuracy" };
+        public static List<string> errorNonNumber = new List<string>() { "не число", "Not a number" };
+        public static List<string> errorFormat = new List<string>() { "Неправильный формат ввода", "Incorrect input format" };
+        public static List<string> errors = new List<string>() { "Были ошибки, возможен не тот результат", "There were mistakes, the wrong result is possible" };
+        public static List<string> errorCalculate = new List<string>() { "Такое программа посчитать не может", "The program cannot calculate this" };
+        public static List<string> errorLoadLanguage = new List<string>() { "Ошибка в количестве строк в языковом файле", "Error in the number of lines in the language file" };
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -87,33 +86,45 @@ namespace SuperRootsApplication
             }
             else if (check.Checked) {
                 var res = RootCalculator.ANALRoot(textBox1.Text, trackBar1.Value);
-                label6.Text = $"{res}";
+                if(res == errorNonNumber[Nlanguage] || res == errorFormat[Nlanguage] || res == errorCalculate[Nlanguage])
+                {
+                    Error error = new Error(res);
+                    error.ShowDialog(this);
+                    label6.Text = "";
+                }
+                else
+                {
+                    label6.Text = $"{res}";
+                }                
             }
             else if (checkBox1.Checked) {
                 bool real = double.TryParse(textBox1.Text, out double re);
                 bool image = double.TryParse(textBox2.Text, out double im);
                 if (real && image)
                 {
-                    var t = RootCalculator.ISqrt(re, im, trackBar1.Value);
+                    var t = RootCalculator.ISqrt(re, im, trackBar1.Value);                    
                     label6.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
                 }
                 else if (real)
                 {
-                    label6.Text = RootCalculator.Sqrt(re, trackBar1.Value).ToString();
+                    Error error = new Error(errors[Nlanguage]);
+                    error.ShowDialog(this);
+                    var t = RootCalculator.ISqrt(re, 0, trackBar1.Value);
+                    label6.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
                 }
                 else if (image)
                 {
+                    Error error = new Error(errors[Nlanguage]);
+                    error.ShowDialog(this);
                     var t = RootCalculator.ISqrt(0, im, trackBar1.Value);
                     label6.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
                 }
-                if (!real)
+                if (!real && !image)
                 {
-
+                    Error error = new Error(errorFormat[Nlanguage]);
+                    error.ShowDialog(this);
                 }
-                if (!image)
-                {
-
-                }
+                
             }
         }
 
@@ -247,8 +258,9 @@ namespace SuperRootsApplication
             var filePath = string.Empty;
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                string directory = AppDomain.CurrentDomain.BaseDirectory;
+                openFileDialog.InitialDirectory = directory;
+                openFileDialog.Filter = "txt files (*.txt)|*.txt";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
 
@@ -263,27 +275,152 @@ namespace SuperRootsApplication
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
                         file.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         exit.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         aboutProgramm.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         userManual.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         language.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         help.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         answer.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         sqrt.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         isqrtRe.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         isqrtIm.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         ANALsqrt.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         calculate.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         analyticalRoots.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         complexRoots.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
                         accuracy.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
+
+                        errorNonNumber.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
+                        errorFormat.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
+                        errors.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
+                        errorCalculate.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
+                        errorLoadLanguage.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
 
                         Nlanguage = file.Count - 1;
                     }
                 }
             }
         }
-
         private void русскийЯзыкToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Nlanguage = 0;
@@ -293,24 +430,6 @@ namespace SuperRootsApplication
         {
             Nlanguage = 1;
         }
-
-
-
-        //List<string> file = new List<string>() { "Файл", "File" };
-        //List<string> exit = new List<string>() { "Выход", "Exit" };
-        //List<string> aboutProgramm = new List<string>() { "О программе", "About the program" };
-        //List<string> userManual = new List<string>() { "Руководство пользователя", "User manual" };
-        //List<string> language = new List<string>() { "Язык", "Language" };
-        //List<string> help = new List<string>() { "Справка", "Help" };
-        //List<string> answer = new List<string>() { "Ответ:", "Result:" };
-        //List<string> sqrt = new List<string>() { "Введите число", "Enter a number" };
-        //List<string> isqrtRe = new List<string>() { "Введите вещественную часть", "Enter the real part" };
-        //List<string> isqrtIm = new List<string>() { "Введите мнимую часть", "nter the imaginary part" };
-        //List<string> ANALsqrt = new List<string>() { "Введите выражение", "Enter the expression" };
-        //List<string> calculate = new List<string>() { "Расчитать", "Calculate" };
-        //List<string> analyticalRoots = new List<string>() { "Аналитические корни", "Analytical roots" };
-        //List<string> complexRoots = new List<string>() { "Комплексные корни", "Complex roots" };
-        //List<string> accuracy = new List<string>() { "Точность", "Accuracy" };
         private void создатьФайлToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var f = File.CreateText("EnglishLanguage.txt");
@@ -328,6 +447,11 @@ namespace SuperRootsApplication
             f.WriteLine(analyticalRoots[1]);
             f.WriteLine(complexRoots[1]);
             f.WriteLine(accuracy[1]);
+            f.WriteLine(errorNonNumber[1]);
+            f.WriteLine(errorFormat[1]);
+            f.WriteLine(errors[1]);
+            f.WriteLine(errorCalculate[1]);
+            f.WriteLine(errorLoadLanguage[1]);
             f.Flush();
             f.Close();
         }

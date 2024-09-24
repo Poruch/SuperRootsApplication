@@ -38,6 +38,7 @@
             this.Name = "users_guide";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "users_guide";
+            this.Load += new System.EventHandler(this.users_guide_Load);
             this.ResumeLayout(false);
 
         }

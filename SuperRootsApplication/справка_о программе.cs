@@ -12,9 +12,17 @@ namespace SuperRootsApplication
 {
     public partial class about_the_program : Form
     {
-        public about_the_program()
+        public about_the_program(string v,string d)
         {
             InitializeComponent();
+            label2.Text = v;
+            label3.Text = d;
+        }
+
+        private void about_the_program_Load(object sender, EventArgs e)
+        {
+            ClientSize = new System.Drawing.Size(400, 200);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
     }
 }

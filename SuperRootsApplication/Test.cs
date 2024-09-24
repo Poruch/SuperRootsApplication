@@ -11,13 +11,13 @@ namespace SuperRootsApplication
 {
     public partial class SuperRootCalculator : Form
     {
-        
+
         public static int NumberLanguage = 0;
         int Nlanguage
         {
             get
-            { 
-                return NumberLanguage; 
+            {
+                return NumberLanguage;
             }
 
             set
@@ -45,20 +45,22 @@ namespace SuperRootsApplication
                 LabelForTextBox2.Text = "";
             }
         }
-    
+
         public SuperRootCalculator()
         {
-           
+
             InitializeComponent();
         }
 
-        static List<string> file = new List<string>() { "Файл","File" };
+        static List<string> file = new List<string>() { "Файл", "File" };
         static List<string> exit = new List<string>() { "Выход", "Exit" };
         static List<string> aboutProgramm = new List<string>() { "О программе", "About the program" };
         static List<string> userManual = new List<string>() { "Руководство пользователя", "User manual" };
         static List<string> language = new List<string>() { "Язык", "Language" };
         static List<string> help = new List<string>() { "Справка", "Help" };
         static List<string> answer = new List<string>() { "Ответ:", "Result:" };
+        static List<string> createFile = new List<string>() { "Создать файл", "Create file" };
+        static List<string> choose = new List<string>() { "Выбрать другой язык", "Choose a different language" };
         static List<string> sqrt = new List<string>() { "Введите число", "Enter a number" };
         static List<string> isqrtRe = new List<string>() { "Введите вещественную часть", "Enter the real part" };
         static List<string> isqrtIm = new List<string>() { "Введите мнимую часть", "nter the imaginary part" };
@@ -74,6 +76,8 @@ namespace SuperRootsApplication
         public static List<string> errorCalculate = new List<string>() { "Такое программа посчитать не может", "The program cannot calculate this" };
         public static List<string> errorLoadLanguage = new List<string>() { "Ошибка в количестве строк в языковом файле", "Error in the number of lines in the language file" };
 
+        public static List<string> version = new List<string>() { "Версия", "Version" };
+        public static List<string> developers = new List<string>() { "Разработчики", "Developers" };
         private void button1_Click(object sender, EventArgs e)
         {
             if (!(checkBox1.Checked || check.Checked))
@@ -231,19 +235,19 @@ namespace SuperRootsApplication
         about_the_program about_the_program;
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            about_the_program = new about_the_program();
-            about_the_program.Show();
+            about_the_program = new about_the_program(version[Nlanguage], developers[Nlanguage]);
+            about_the_program.ShowDialog();
         }
         users_guide users_guide;
         private void руководствоПользователяToolStripMenuItem_Click(object sender, EventArgs e)
         {
             users_guide = new users_guide();
-            users_guide.Show();
+            users_guide.ShowDialog();
         }
 
         private void SuperRootCalculator_Load(object sender, EventArgs e)
         {
-            ClientSize = new System.Drawing.Size(750,489);
+            ClientSize = new System.Drawing.Size(750,490);
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
@@ -317,6 +321,20 @@ namespace SuperRootsApplication
                             return;
                         }
                         answer.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
+                        createFile.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
+                        choose.Add(reader.ReadLine());
                         if (reader.EndOfStream)
                         {
                             Error error = new Error(errorLoadLanguage[Nlanguage]);
@@ -415,6 +433,14 @@ namespace SuperRootsApplication
                             error.ShowDialog(this);
                             return;
                         }
+                        version.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
+                        developers.Add(reader.ReadLine());                        
 
                         Nlanguage = file.Count - 1;
                     }
@@ -440,6 +466,8 @@ namespace SuperRootsApplication
             f.WriteLine(language[1]);
             f.WriteLine(help[1]);
             f.WriteLine(answer[1]);
+            f.WriteLine(createFile[1]);
+            f.WriteLine(choose[1]);
             f.WriteLine(isqrtRe[1]);
             f.WriteLine(isqrtRe[1]);
             f.WriteLine(isqrtIm[1]);
@@ -452,6 +480,8 @@ namespace SuperRootsApplication
             f.WriteLine(errors[1]);
             f.WriteLine(errorCalculate[1]);
             f.WriteLine(errorLoadLanguage[1]);
+            f.WriteLine(version[1]);
+            f.WriteLine(developers[1]);
             f.Flush();
             f.Close();
         }

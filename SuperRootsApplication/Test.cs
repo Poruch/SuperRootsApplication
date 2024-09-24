@@ -81,7 +81,7 @@ namespace SuperRootsApplication
                 bool real = double.TryParse(textBox1.Text, out double re);              
                 if (real)
                 {
-                    label6.Text = RootCalculator.Sqrt(re, trackBar1.Value).ToString();
+                    textBox3.Text = RootCalculator.Sqrt(re, trackBar1.Value).ToString();
                 }
             }
             else if (check.Checked) {
@@ -90,11 +90,11 @@ namespace SuperRootsApplication
                 {
                     Error error = new Error(res);
                     error.ShowDialog(this);
-                    label6.Text = "";
+                    textBox3.Text = "";
                 }
                 else
                 {
-                    label6.Text = $"{res}";
+                    textBox3.Text = $"{res}";
                 }                
             }
             else if (checkBox1.Checked) {
@@ -102,22 +102,22 @@ namespace SuperRootsApplication
                 bool image = double.TryParse(textBox2.Text, out double im);
                 if (real && image)
                 {
-                    var t = RootCalculator.ISqrt(re, im, trackBar1.Value);                    
-                    label6.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
+                    var t = RootCalculator.ISqrt(re, im, trackBar1.Value);
+                    textBox3.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
                 }
                 else if (real)
                 {
                     Error error = new Error(errors[Nlanguage]);
                     error.ShowDialog(this);
                     var t = RootCalculator.ISqrt(re, 0, trackBar1.Value);
-                    label6.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
+                    textBox3.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
                 }
                 else if (image)
                 {
                     Error error = new Error(errors[Nlanguage]);
                     error.ShowDialog(this);
                     var t = RootCalculator.ISqrt(0, im, trackBar1.Value);
-                    label6.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
+                    textBox3.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
                 }
                 if (!real && !image)
                 {

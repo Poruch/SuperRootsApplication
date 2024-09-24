@@ -58,17 +58,19 @@
             // 
             // ButtonForCalculate
             // 
-            this.ButtonForCalculate.Location = new System.Drawing.Point(368, 262);
+            this.ButtonForCalculate.BackColor = System.Drawing.SystemColors.Menu;
+            this.ButtonForCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonForCalculate.Location = new System.Drawing.Point(429, 269);
             this.ButtonForCalculate.Name = "ButtonForCalculate";
-            this.ButtonForCalculate.Size = new System.Drawing.Size(75, 23);
+            this.ButtonForCalculate.Size = new System.Drawing.Size(116, 32);
             this.ButtonForCalculate.TabIndex = 0;
             this.ButtonForCalculate.Text = "Рассчитать";
-            this.ButtonForCalculate.UseVisualStyleBackColor = true;
+            this.ButtonForCalculate.UseVisualStyleBackColor = false;
             this.ButtonForCalculate.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox1.BackColor = System.Drawing.SystemColors.Menu;
             this.textBox1.Location = new System.Drawing.Point(226, 147);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
@@ -88,6 +90,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.Menu;
             this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(226, 209);
             this.textBox2.Name = "textBox2";
@@ -126,9 +129,10 @@
             // check
             // 
             this.check.AutoSize = true;
+            this.check.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.check.Location = new System.Drawing.Point(226, 243);
             this.check.Name = "check";
-            this.check.Size = new System.Drawing.Size(136, 17);
+            this.check.Size = new System.Drawing.Size(194, 24);
             this.check.TabIndex = 11;
             this.check.Text = "Аналитические корни";
             this.check.UseVisualStyleBackColor = true;
@@ -147,8 +151,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.Window;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(339, 323);
+            this.label6.Location = new System.Drawing.Point(326, 326);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 24);
             this.label6.TabIndex = 13;
@@ -157,18 +162,20 @@
             // LabelForAnswer
             // 
             this.LabelForAnswer.AutoSize = true;
-            this.LabelForAnswer.Location = new System.Drawing.Point(270, 331);
+            this.LabelForAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelForAnswer.Location = new System.Drawing.Point(224, 325);
             this.LabelForAnswer.Name = "LabelForAnswer";
-            this.LabelForAnswer.Size = new System.Drawing.Size(40, 13);
+            this.LabelForAnswer.Size = new System.Drawing.Size(83, 25);
             this.LabelForAnswer.TabIndex = 14;
             this.LabelForAnswer.Text = "Ответ:";
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(226, 266);
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox1.Location = new System.Drawing.Point(225, 277);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(130, 17);
+            this.checkBox1.Size = new System.Drawing.Size(179, 24);
             this.checkBox1.TabIndex = 15;
             this.checkBox1.Text = "Комплексные корни";
             this.checkBox1.UseVisualStyleBackColor = true;

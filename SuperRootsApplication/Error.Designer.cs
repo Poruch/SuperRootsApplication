@@ -49,7 +49,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Error";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Error";
             this.Load += new System.EventHandler(this.Error_Load);
             this.ResumeLayout(false);

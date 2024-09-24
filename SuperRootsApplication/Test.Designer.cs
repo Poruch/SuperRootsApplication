@@ -37,6 +37,7 @@
             this.AccuracyLabel = new System.Windows.Forms.Label();
             this.check = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.LabelForAnswer = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -51,7 +52,6 @@
             this.выбратьДрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -109,7 +109,7 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(222, 337);
+            this.trackBar1.Location = new System.Drawing.Point(12, 393);
             this.trackBar1.Maximum = 13;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(104, 45);
@@ -120,7 +120,7 @@
             // 
             this.AccuracyLabel.AutoSize = true;
             this.AccuracyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AccuracyLabel.Location = new System.Drawing.Point(222, 314);
+            this.AccuracyLabel.Location = new System.Drawing.Point(12, 370);
             this.AccuracyLabel.Name = "AccuracyLabel";
             this.AccuracyLabel.Size = new System.Drawing.Size(80, 20);
             this.AccuracyLabel.TabIndex = 10;
@@ -141,18 +141,29 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(222, 369);
+            this.label5.Location = new System.Drawing.Point(12, 425);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(13, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "0";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.Window;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(326, 326);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 24);
+            this.label6.TabIndex = 13;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
             // LabelForAnswer
             // 
             this.LabelForAnswer.AutoSize = true;
             this.LabelForAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelForAnswer.Location = new System.Drawing.Point(349, 310);
+            this.LabelForAnswer.Location = new System.Drawing.Point(224, 325);
             this.LabelForAnswer.Name = "LabelForAnswer";
             this.LabelForAnswer.Size = new System.Drawing.Size(83, 25);
             this.LabelForAnswer.TabIndex = 14;
@@ -193,7 +204,7 @@
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -268,23 +279,15 @@
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox1_KeyDown);
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(354, 338);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(191, 20);
-            this.textBox3.TabIndex = 17;
-            // 
             // SuperRootCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(734, 450);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.LabelForAnswer);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.check);
             this.Controls.Add(this.AccuracyLabel);
@@ -320,6 +323,7 @@
         internal System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox check;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label LabelForAnswer;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -334,7 +338,6 @@
         private System.Windows.Forms.ToolStripMenuItem выбратьДрToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem создатьФайлToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.TextBox textBox3;
     }
 }
 

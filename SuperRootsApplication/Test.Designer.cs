@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonForCalculate = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LabelForTextBox1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LabelForTextBox2 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.label4 = new System.Windows.Forms.Label();
+            this.AccuracyLabel = new System.Windows.Forms.Label();
             this.check = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.LabelForAnswer = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,15 +54,15 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // ButtonForCalculate
             // 
-            this.button1.Location = new System.Drawing.Point(415, 212);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Рассчитать";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ButtonForCalculate.Location = new System.Drawing.Point(415, 212);
+            this.ButtonForCalculate.Name = "ButtonForCalculate";
+            this.ButtonForCalculate.Size = new System.Drawing.Size(75, 23);
+            this.ButtonForCalculate.TabIndex = 0;
+            this.ButtonForCalculate.Text = "Рассчитать";
+            this.ButtonForCalculate.UseVisualStyleBackColor = true;
+            this.ButtonForCalculate.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -74,14 +74,14 @@
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
-            // label1
+            // LabelForTextBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(281, 121);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Введите число";
+            this.LabelForTextBox1.AutoSize = true;
+            this.LabelForTextBox1.Location = new System.Drawing.Point(281, 121);
+            this.LabelForTextBox1.Name = "LabelForTextBox1";
+            this.LabelForTextBox1.Size = new System.Drawing.Size(81, 13);
+            this.LabelForTextBox1.TabIndex = 2;
+            this.LabelForTextBox1.Text = "Введите число";
             // 
             // textBox2
             // 
@@ -92,13 +92,13 @@
             this.textBox2.TabIndex = 3;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // label3
+            // LabelForTextBox2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(281, 170);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 13);
-            this.label3.TabIndex = 8;
+            this.LabelForTextBox2.AutoSize = true;
+            this.LabelForTextBox2.Location = new System.Drawing.Point(281, 170);
+            this.LabelForTextBox2.Name = "LabelForTextBox2";
+            this.LabelForTextBox2.Size = new System.Drawing.Size(0, 13);
+            this.LabelForTextBox2.TabIndex = 8;
             // 
             // trackBar1
             // 
@@ -109,14 +109,14 @@
             this.trackBar1.TabIndex = 9;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
-            // label4
+            // AccuracyLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 377);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(213, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Введите точность (знаки после запятой)";
+            this.AccuracyLabel.AutoSize = true;
+            this.AccuracyLabel.Location = new System.Drawing.Point(9, 377);
+            this.AccuracyLabel.Name = "AccuracyLabel";
+            this.AccuracyLabel.Size = new System.Drawing.Size(213, 13);
+            this.AccuracyLabel.TabIndex = 10;
+            this.AccuracyLabel.Text = "Введите точность (знаки после запятой)";
             // 
             // check
             // 
@@ -149,14 +149,14 @@
             this.label6.TabIndex = 13;
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // label7
+            // LabelForAnswer
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(403, 147);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Ответ:";
+            this.LabelForAnswer.AutoSize = true;
+            this.LabelForAnswer.Location = new System.Drawing.Point(403, 147);
+            this.LabelForAnswer.Name = "LabelForAnswer";
+            this.LabelForAnswer.Size = new System.Drawing.Size(40, 13);
+            this.LabelForAnswer.TabIndex = 14;
+            this.LabelForAnswer.Text = "Ответ:";
             // 
             // checkBox1
             // 
@@ -192,7 +192,7 @@
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             // 
             // справкаToolStripMenuItem
@@ -225,21 +225,23 @@
             this.englishLanguageToolStripMenuItem,
             this.выбратьДрToolStripMenuItem});
             this.языкToolStripMenuItem.Name = "языкToolStripMenuItem";
-            this.языкToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
-            this.языкToolStripMenuItem.Text = "Язык/Language";
+            this.языкToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.языкToolStripMenuItem.Text = "Язык";
             this.языкToolStripMenuItem.Click += new System.EventHandler(this.языкToolStripMenuItem_Click);
             // 
             // русскийЯзыкToolStripMenuItem
             // 
             this.русскийЯзыкToolStripMenuItem.Name = "русскийЯзыкToolStripMenuItem";
             this.русскийЯзыкToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.русскийЯзыкToolStripMenuItem.Text = "Русский язык";
+            this.русскийЯзыкToolStripMenuItem.Text = "1 Русский язык";
+            this.русскийЯзыкToolStripMenuItem.Click += new System.EventHandler(this.русскийЯзыкToolStripMenuItem_Click);
             // 
             // englishLanguageToolStripMenuItem
             // 
             this.englishLanguageToolStripMenuItem.Name = "englishLanguageToolStripMenuItem";
             this.englishLanguageToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.englishLanguageToolStripMenuItem.Text = "English language";
+            this.englishLanguageToolStripMenuItem.Text = "2 English language";
+            this.englishLanguageToolStripMenuItem.Click += new System.EventHandler(this.englishLanguageToolStripMenuItem_Click);
             // 
             // выбратьДрToolStripMenuItem
             // 
@@ -255,17 +257,17 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.LabelForAnswer);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.check);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.AccuracyLabel);
             this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.LabelForTextBox2);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LabelForTextBox1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ButtonForCalculate);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "SuperRootCalculator";
@@ -282,17 +284,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button ButtonForCalculate;
+        private System.Windows.Forms.Label LabelForTextBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LabelForTextBox2;
         private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label AccuracyLabel;
         internal System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox check;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LabelForAnswer;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem;

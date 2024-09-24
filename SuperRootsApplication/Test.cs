@@ -9,14 +9,67 @@ namespace SuperRootsApplication
 {
     public partial class SuperRootCalculator : Form
     {
+        int NumberLanguage = 0;
+        int Nlanguage
+        {
+            get
+            { 
+                return NumberLanguage; 
+            }
+
+            set
+            {
+                NumberLanguage = value;
+
+                ToolStripMenuItem.Text = file[Nlanguage];
+                выходToolStripMenuItem.Text = exit[Nlanguage];
+                оПрограммеToolStripMenuItem.Text = aboutProgramm[Nlanguage];
+                руководствоПользователяToolStripMenuItem.Text = userManual[Nlanguage];
+                языкToolStripMenuItem.Text = language[Nlanguage];
+                справкаToolStripMenuItem.Text = help[Nlanguage];
+
+                AccuracyLabel.Text = accuracy[Nlanguage];
+                LabelForAnswer.Text = answer[Nlanguage];
+                ButtonForCalculate.Text = calculate[Nlanguage];
+
+                check.Checked = false;
+                checkBox1.Checked = false;
+
+                check.Text = analyticalRoots[Nlanguage];
+                checkBox1.Text = complexRoots[Nlanguage];
+
+                LabelForTextBox1.Text = sqrt[Nlanguage];
+                LabelForTextBox2.Text = "";
+                
+
+            }
+        }
+    
         public SuperRootCalculator()
         {
             string directory = AppDomain.CurrentDomain.BaseDirectory;
-            var res = LanguageLoader.SetTranslation(directory + "/RussianLanguage.txt");          
-            
+            //var res = LanguageLoader.SetTranslation(directory + "/RussianLanguage.txt"); 
             InitializeComponent();
-            SetTranslate(res);
+
+            //SetTranslate(res);
         }
+
+        List<string> file = new List<string>() { "Файл","File" };
+        List<string> exit = new List<string>() { "Выход", "Exit" };
+        List<string> aboutProgramm = new List<string>() { "О программе", "About the program" };
+        List<string> userManual = new List<string>() { "Руководство пользователя", "User manual" };
+        List<string> language = new List<string>() { "Язык", "Language" };
+        List<string> help = new List<string>() { "Справка", "Help" };
+        List<string> answer = new List<string>() { "Ответ:", "Result:" };
+        List<string> sqrt = new List<string>() { "Введите число", "Enter a number" };
+        List<string> isqrtRe = new List<string>() { "Введите вещественную часть", "Enter the real part" };
+        List<string> isqrtIm = new List<string>() { "Введите мнимую часть", "nter the imaginary part" };
+        List<string> ANALsqrt = new List<string>() { "Введите выражение", "Enter the expression" };
+        List<string> calculate = new List<string>() { "Расчитать", "Calculate" };
+        List<string> analyticalRoots = new List<string>() { "Аналитические корни", "Analytical roots" };
+        List<string> complexRoots = new List<string>() { "Комплексные корни", "Complex roots" };
+        List<string> accuracy = new List<string>() { "Точность", "Accuracy" };
+        
         private void SetTranslate(List<string> res)
         {
             ToolStripMenuItem.Text = res[0];
@@ -25,14 +78,14 @@ namespace SuperRootsApplication
             руководствоПользователяToolStripMenuItem.Text = res[3];
             языкToolStripMenuItem.Text = res[4];
             справкаToolStripMenuItem.Text += res[5];
-            label1.Text = res[6];
-            label1.Text = res[7];
-            label3.Text = res[8];
-            label3.Text = "";
-            button1.Text = res[9];
+            LabelForTextBox1.Text = res[6];
+            LabelForTextBox1.Text = res[7];
+            LabelForTextBox2.Text = res[8];
+            LabelForTextBox2.Text = "";
+            ButtonForCalculate.Text = res[9];
             check.Text = res[10];
             checkBox1.Text = res[11];
-            label4.Text = res[12];
+            AccuracyLabel.Text = res[12];
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -125,8 +178,8 @@ namespace SuperRootsApplication
             textBox1.Text = "";
             if (check.Checked)
             {
-                label1.Text = "Введите выражение";
-                label3.Text = "";
+                LabelForTextBox1.Text = "Введите выражение";
+                LabelForTextBox2.Text = "";
 
                 textBox2.Text = "";
                 textBox2.Enabled = false;     
@@ -135,8 +188,8 @@ namespace SuperRootsApplication
             }
             else
             {
-                label1.Text = "Введите число";
-                label3.Text = "";
+                LabelForTextBox1.Text = "Введите число";
+                LabelForTextBox2.Text = "";
 
                 textBox2.Text = "";
                 textBox2.Enabled = false;               
@@ -149,8 +202,8 @@ namespace SuperRootsApplication
             textBox1.Text = "";
             if (checkBox1.Checked)
             {
-                label3.Text = "Введите мнимую часть";
-                label1.Text = "Введите вещественную часть";
+                LabelForTextBox2.Text = "Введите мнимую часть";
+                LabelForTextBox1.Text = "Введите вещественную часть";
 
                 textBox1.Text = "0";
 
@@ -162,8 +215,8 @@ namespace SuperRootsApplication
             }
             else
             {
-                label1.Text = "Введите число";
-                label3.Text = "";
+                LabelForTextBox1.Text = "Введите число";
+                LabelForTextBox2.Text = "";
 
                 textBox2.Text = "";
                 textBox2.Enabled = false;
@@ -201,7 +254,17 @@ namespace SuperRootsApplication
 
         private void выбратьДрToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void русскийЯзыкToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Nlanguage = 0;
+        }
+
+        private void englishLanguageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Nlanguage = 1;
         }
     }
 }

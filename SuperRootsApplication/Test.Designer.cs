@@ -50,6 +50,8 @@
             this.русскийЯзыкToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выбратьДрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.создатьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -114,9 +116,9 @@
             this.AccuracyLabel.AutoSize = true;
             this.AccuracyLabel.Location = new System.Drawing.Point(9, 377);
             this.AccuracyLabel.Name = "AccuracyLabel";
-            this.AccuracyLabel.Size = new System.Drawing.Size(213, 13);
+            this.AccuracyLabel.Size = new System.Drawing.Size(54, 13);
             this.AccuracyLabel.TabIndex = 10;
-            this.AccuracyLabel.Text = "Введите точность (знаки после запятой)";
+            this.AccuracyLabel.Text = "Точность";
             // 
             // check
             // 
@@ -223,7 +225,9 @@
             this.языкToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.русскийЯзыкToolStripMenuItem,
             this.englishLanguageToolStripMenuItem,
-            this.выбратьДрToolStripMenuItem});
+            this.выбратьДрToolStripMenuItem,
+            this.создатьФайлToolStripMenuItem,
+            this.toolStripTextBox1});
             this.языкToolStripMenuItem.Name = "языкToolStripMenuItem";
             this.языкToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.языкToolStripMenuItem.Text = "Язык";
@@ -249,6 +253,20 @@
             this.выбратьДрToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.выбратьДрToolStripMenuItem.Text = "Выбрать другой язык";
             this.выбратьДрToolStripMenuItem.Click += new System.EventHandler(this.выбратьДрToolStripMenuItem_Click);
+            // 
+            // создатьФайлToolStripMenuItem
+            // 
+            this.создатьФайлToolStripMenuItem.Name = "создатьФайлToolStripMenuItem";
+            this.создатьФайлToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.создатьФайлToolStripMenuItem.Text = "Создать файл";
+            this.создатьФайлToolStripMenuItem.Click += new System.EventHandler(this.создатьФайлToolStripMenuItem_Click);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox1_KeyDown);
             // 
             // SuperRootCalculator
             // 
@@ -306,6 +324,8 @@
         private System.Windows.Forms.ToolStripMenuItem русскийЯзыкToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishLanguageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выбратьДрToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem создатьФайлToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
     }
 }
 

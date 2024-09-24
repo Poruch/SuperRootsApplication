@@ -53,7 +53,7 @@ namespace SuperRootsApplication
             {
                 Console.Write(i);
             }
-            if (!(members.Length == 3 || members.Length == 1))
+            if (!(members.Length == 1))
             {
                 return "Такое программа посчитать не может";
             }

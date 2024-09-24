@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
@@ -69,24 +70,11 @@ namespace SuperRootsApplication
         List<string> analyticalRoots = new List<string>() { "Аналитические корни", "Analytical roots" };
         List<string> complexRoots = new List<string>() { "Комплексные корни", "Complex roots" };
         List<string> accuracy = new List<string>() { "Точность", "Accuracy" };
-        
-        private void SetTranslate(List<string> res)
-        {
-            ToolStripMenuItem.Text = res[0];
-            выходToolStripMenuItem.Text = res[1];
-            оПрограммеToolStripMenuItem.Text = res[2];
-            руководствоПользователяToolStripMenuItem.Text = res[3];
-            языкToolStripMenuItem.Text = res[4];
-            справкаToolStripMenuItem.Text += res[5];
-            LabelForTextBox1.Text = res[6];
-            LabelForTextBox1.Text = res[7];
-            LabelForTextBox2.Text = res[8];
-            LabelForTextBox2.Text = "";
-            ButtonForCalculate.Text = res[9];
-            check.Text = res[10];
-            checkBox1.Text = res[11];
-            AccuracyLabel.Text = res[12];
-        }
+
+        static List<string> errorNonNumber = new List<string>() { "Точность", "Accuracy" };
+        static List<string> errorFormat = new List<string>() { "Точность", "Accuracy" };
+        static List<string> errorCalculate = new List<string>() { "Точность", "Accuracy" };
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (!(checkBox1.Checked || check.Checked))
@@ -178,7 +166,7 @@ namespace SuperRootsApplication
             textBox1.Text = "";
             if (check.Checked)
             {
-                LabelForTextBox1.Text = "Введите выражение";
+                LabelForTextBox1.Text = ANALsqrt[Nlanguage];
                 LabelForTextBox2.Text = "";
 
                 textBox2.Text = "";
@@ -188,7 +176,7 @@ namespace SuperRootsApplication
             }
             else
             {
-                LabelForTextBox1.Text = "Введите число";
+                LabelForTextBox1.Text = sqrt[Nlanguage];
                 LabelForTextBox2.Text = "";
 
                 textBox2.Text = "";
@@ -202,8 +190,8 @@ namespace SuperRootsApplication
             textBox1.Text = "";
             if (checkBox1.Checked)
             {
-                LabelForTextBox2.Text = "Введите мнимую часть";
-                LabelForTextBox1.Text = "Введите вещественную часть";
+                LabelForTextBox2.Text = isqrtIm[Nlanguage];
+                LabelForTextBox1.Text = isqrtRe[Nlanguage];
 
                 textBox1.Text = "0";
 
@@ -215,7 +203,7 @@ namespace SuperRootsApplication
             }
             else
             {
-                LabelForTextBox1.Text = "Введите число";
+                LabelForTextBox1.Text = sqrt[Nlanguage];
                 LabelForTextBox2.Text = "";
 
                 textBox2.Text = "";
@@ -254,7 +242,45 @@ namespace SuperRootsApplication
 
         private void выбратьДрToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+
+                    //Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        file.Add(reader.ReadLine());
+                        exit.Add(reader.ReadLine());
+                        aboutProgramm.Add(reader.ReadLine());
+                        userManual.Add(reader.ReadLine());
+                        language.Add(reader.ReadLine());
+                        help.Add(reader.ReadLine());
+                        answer.Add(reader.ReadLine());
+                        sqrt.Add(reader.ReadLine());
+                        isqrtRe.Add(reader.ReadLine());
+                        isqrtIm.Add(reader.ReadLine());
+                        ANALsqrt.Add(reader.ReadLine());
+                        calculate.Add(reader.ReadLine());
+                        analyticalRoots.Add(reader.ReadLine());
+                        complexRoots.Add(reader.ReadLine());
+                        accuracy.Add(reader.ReadLine());
+
+                        Nlanguage = file.Count - 1;
+                    }
+                }
+            }
         }
 
         private void русскийЯзыкToolStripMenuItem_Click(object sender, EventArgs e)
@@ -265,6 +291,75 @@ namespace SuperRootsApplication
         private void englishLanguageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Nlanguage = 1;
+        }
+
+
+
+        //List<string> file = new List<string>() { "Файл", "File" };
+        //List<string> exit = new List<string>() { "Выход", "Exit" };
+        //List<string> aboutProgramm = new List<string>() { "О программе", "About the program" };
+        //List<string> userManual = new List<string>() { "Руководство пользователя", "User manual" };
+        //List<string> language = new List<string>() { "Язык", "Language" };
+        //List<string> help = new List<string>() { "Справка", "Help" };
+        //List<string> answer = new List<string>() { "Ответ:", "Result:" };
+        //List<string> sqrt = new List<string>() { "Введите число", "Enter a number" };
+        //List<string> isqrtRe = new List<string>() { "Введите вещественную часть", "Enter the real part" };
+        //List<string> isqrtIm = new List<string>() { "Введите мнимую часть", "nter the imaginary part" };
+        //List<string> ANALsqrt = new List<string>() { "Введите выражение", "Enter the expression" };
+        //List<string> calculate = new List<string>() { "Расчитать", "Calculate" };
+        //List<string> analyticalRoots = new List<string>() { "Аналитические корни", "Analytical roots" };
+        //List<string> complexRoots = new List<string>() { "Комплексные корни", "Complex roots" };
+        //List<string> accuracy = new List<string>() { "Точность", "Accuracy" };
+        private void создатьФайлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = File.CreateText("EnglishLanguage.txt");
+            f.WriteLine(file[1]);
+            f.WriteLine(exit[1]);
+            f.WriteLine(aboutProgramm[1]);
+            f.WriteLine(userManual[1]);
+            f.WriteLine(language[1]);
+            f.WriteLine(help[1]);
+            f.WriteLine(answer[1]);
+            f.WriteLine(isqrtRe[1]);
+            f.WriteLine(isqrtRe[1]);
+            f.WriteLine(isqrtIm[1]);
+            f.WriteLine(ANALsqrt[1]);
+            f.WriteLine(analyticalRoots[1]);
+            f.WriteLine(complexRoots[1]);
+            f.WriteLine(accuracy[1]);
+            f.Flush();
+            f.Close();
+        }
+
+        private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                bool can = int.TryParse(toolStripTextBox1.Text, out var n);
+                n -= 1;
+                if (can)
+                {
+                    if(n < file.Count)
+                    {
+                        if(n >= 0)
+                        {
+                            Nlanguage = n;
+                        }
+                        else
+                        {
+                            Nlanguage = 0;
+                        }
+                    }
+                    else
+                    {
+                        Nlanguage = file.Count-1;
+                    }
+                }
+                else
+                {
+                    toolStripTextBox1.Text = sqrt[Nlanguage];
+                }
+            }
         }
     }
 }

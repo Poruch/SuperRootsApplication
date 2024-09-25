@@ -236,9 +236,9 @@
             this.языкToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.русскийЯзыкToolStripMenuItem,
             this.englishLanguageToolStripMenuItem,
-            this.toolStripTextBox1,
             this.выбратьДрToolStripMenuItem,
-            this.создатьФайлToolStripMenuItem});
+            this.создатьФайлToolStripMenuItem,
+            this.toolStripTextBox1});
             this.языкToolStripMenuItem.Name = "языкToolStripMenuItem";
             this.языкToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.языкToolStripMenuItem.Text = "Язык";

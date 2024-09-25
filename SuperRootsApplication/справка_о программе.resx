@@ -117,4 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Разработчик бекенд - Мальшаков Александр Аркадьевич
+Фронтенд - Богомаз Александр Артемович
+Тестировщик - Погодин Роман Дмитриевич.
+Тот кто пишет документацию - Киладзе Малхази Зероевич
+Тот кто пишет как пользоваться программой - Громов Иван Михайлович
+Служба поддержки - Семёнов Кирилл Витальевич
+
+
+
+</value>
+  </data>
 </root>

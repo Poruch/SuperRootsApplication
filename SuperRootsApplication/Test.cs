@@ -61,9 +61,9 @@ namespace SuperRootsApplication
         static List<string> answer = new List<string>() { "Ответ:", "Result:" };
         static List<string> sqrt = new List<string>() { "Введите число", "Enter a number" };
         static List<string> isqrtRe = new List<string>() { "Введите вещественную часть", "Enter the real part" };
-        static List<string> isqrtIm = new List<string>() { "Введите мнимую часть", "nter the imaginary part" };
+        static List<string> isqrtIm = new List<string>() { "Введите мнимую часть", "Enter the imaginary part" };
         static List<string> ANALsqrt = new List<string>() { "Введите выражение", "Enter the expression" };
-        static List<string> calculate = new List<string>() { "Расчитать", "Calculate" };
+        static List<string> calculate = new List<string>() { "Рассчитать", "Calculate" };
         static List<string> analyticalRoots = new List<string>() { "Аналитические корни", "Analytical roots" };
         static List<string> complexRoots = new List<string>() { "Комплексные корни", "Complex roots" };
         static List<string> accuracy = new List<string>() { "Точность", "Accuracy" };
@@ -86,13 +86,12 @@ namespace SuperRootsApplication
                 if (real)
                 {
                     textBox3.Text = RootCalculator.Sqrt(re, trackBar1.Value).ToString();
-
                 }
                 else
                 {
-                    textBox3.Text = RootCalculator.Sqrt(re, trackBar1.Value).ToString();
+                    textBox3.Text = "";
                     Error error = new Error(errorNonNumber[Nlanguage]);
-                    error.ShowDialog(this);
+                    error.ShowDialog(this);                    
                 }
             }
             else if (check.Checked) {
@@ -467,7 +466,7 @@ namespace SuperRootsApplication
         }
         private void создатьФайлToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var f = File.CreateText("EnglishLanguage.txt");
+            var f = File.CreateText("YourLanguage.txt");
             f.WriteLine(file[1]);
             f.WriteLine(exit[1]);
             f.WriteLine(aboutProgramm[1]);

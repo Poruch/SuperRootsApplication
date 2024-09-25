@@ -59,9 +59,14 @@ namespace SuperRootsApplication
         static List<string> language = new List<string>() { "Язык", "Language" };
         static List<string> help = new List<string>() { "Справка", "Help" };
         static List<string> answer = new List<string>() { "Ответ:", "Result:" };
+
+        static List<string> createFile = new List<string>() { "Создать файл", "Create file" };
+        static List<string> choose = new List<string>() { "Выбрать другой язык", "Choose a different language" };
+
         static List<string> sqrt = new List<string>() { "Введите число", "Enter a number" };
+
         static List<string> isqrtRe = new List<string>() { "Введите вещественную часть", "Enter the real part" };
-        static List<string> isqrtIm = new List<string>() { "Введите мнимую часть", "nter the imaginary part" };
+        static List<string> isqrtIm = new List<string>() { "Введите мнимую часть", "Enter the imaginary part" };
         static List<string> ANALsqrt = new List<string>() { "Введите выражение", "Enter the expression" };
         static List<string> calculate = new List<string>() { "Расчитать", "Calculate" };
         static List<string> analyticalRoots = new List<string>() { "Аналитические корни", "Analytical roots" };
@@ -102,8 +107,16 @@ namespace SuperRootsApplication
                 bool image = double.TryParse(textBox2.Text, out double im);
                 if (real && image)
                 {
-                    var t = RootCalculator.ISqrt(re, im, trackBar1.Value);                    
-                    label6.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
+                    if(re == 0 && im == 0)
+                    {
+                        textBox3.Text = "0";
+                    }
+                    else
+                    {
+                        var t = RootCalculator.ISqrt(re, im, trackBar1.Value);
+                        textBox3.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
+                    }
+                    
                 }
                 else if (real)
                 {
@@ -228,17 +241,15 @@ namespace SuperRootsApplication
         {
 
         }
-        about_the_program about_the_program;
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            about_the_program = new about_the_program();
-            about_the_program.Show();
+            var about = new about_the_program(version[Nlanguage], developers[Nlanguage]);
+            about.ShowDialog();
         }
-        users_guide users_guide;
         private void руководствоПользователяToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            users_guide = new users_guide();
-            users_guide.Show();
+            var guide = new users_guide();
+            guide.ShowDialog();
         }
 
         private void SuperRootCalculator_Load(object sender, EventArgs e)
@@ -433,25 +444,41 @@ namespace SuperRootsApplication
         private void создатьФайлToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var f = File.CreateText("EnglishLanguage.txt");
+
             f.WriteLine(file[1]);
             f.WriteLine(exit[1]);
+
             f.WriteLine(aboutProgramm[1]);
             f.WriteLine(userManual[1]);
             f.WriteLine(language[1]);
             f.WriteLine(help[1]);
+
             f.WriteLine(answer[1]);
-            f.WriteLine(isqrtRe[1]);
+            f.WriteLine(createFile[1]);
+            f.WriteLine(choose[1]);
+
+            f.WriteLine(sqrt[1]);
             f.WriteLine(isqrtRe[1]);
             f.WriteLine(isqrtIm[1]);
+
             f.WriteLine(ANALsqrt[1]);
+            f.WriteLine(calculate[1]);
+
+
             f.WriteLine(analyticalRoots[1]);
+            
+
             f.WriteLine(complexRoots[1]);
             f.WriteLine(accuracy[1]);
+
             f.WriteLine(errorNonNumber[1]);
             f.WriteLine(errorFormat[1]);
             f.WriteLine(errors[1]);
             f.WriteLine(errorCalculate[1]);
             f.WriteLine(errorLoadLanguage[1]);
+
+            f.WriteLine(version[1]);
+            f.WriteLine(developers[1]);
             f.Flush();
             f.Close();
         }

@@ -516,5 +516,10 @@ namespace SuperRootsApplication
         {
             Close();
         }
+
+        private void AccuracyLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

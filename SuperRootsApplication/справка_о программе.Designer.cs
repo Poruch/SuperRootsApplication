@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(about_the_program));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,11 +74,13 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 95);
+            this.label5.Location = new System.Drawing.Point(100, 70);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(380, 117);
+            this.label5.Size = new System.Drawing.Size(187, 117);
             this.label5.TabIndex = 4;
-            this.label5.Text = resources.GetString("label5.Text");
+            this.label5.Text = "Мальшаков Александр Аркадьевич\r\nБогомаз Александр Артемович\r\nПогодин Роман Дмитри" +
+    "евич.\r\nКиладзе Малхази Зероевич\r\nГромов Иван Михайлович\r\nСемёнов Кирилл Витальев" +
+    "ич\r\n\r\n\r\n\r\n";
             // 
             // about_the_program
             // 

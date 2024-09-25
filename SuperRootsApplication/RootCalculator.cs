@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Expr = MathNet.Symbolics.SymbolicExpression; 
 
 namespace SuperRootsApplication
@@ -44,11 +45,11 @@ namespace SuperRootsApplication
             catch
             {
                 return SuperRootCalculator.errorFormat[SuperRootCalculator.NumberLanguage];
-            }            
+            }
             var simplified = s1.RationalSimplify(s1);
             string res = simplified.ToString();
 
-            var members = res.Split('+','-');
+            var members = res.Split('+', '-');
             foreach (var i in members)
             {
                 Console.Write(i);
@@ -57,7 +58,7 @@ namespace SuperRootsApplication
             {
                 return SuperRootCalculator.errorCalculate[SuperRootCalculator.NumberLanguage];
             }
-            else if(members.Length == 1)
+            else if (members.Length == 1)
             {
                 string result = "|";
                 var mem = members[0].Split('*');
@@ -70,7 +71,7 @@ namespace SuperRootsApplication
                     bool isDigit = int.TryParse(item, out int b2);
                     if (b != -1)
                     {
-                        if (int.TryParse(item.Substring(b + 1),out int z))
+                        if (int.TryParse(item.Substring(b + 1), out int z))
                         {
                             if (z % 2 == 0)
                             {
@@ -96,20 +97,26 @@ namespace SuperRootsApplication
                             result += item.Substring(0, b) + "*";
                             sqr = true;
                         }
-                        
+
                     }
-                    else if(!isDigit)
+                    else if (!isDigit)
                     {
                         others += item + "*";
                         oth = true;
-                    } 
+                    }
                     else if (isDigit)
                     {
-                        result += Sqrt(b2, precision).ToString() + "*";
+                        result = Sqrt(b2, precision).ToString() + "*" + result;
                         sqr = true;
                     }
 
                 }
+                if (result[result.Length - 1] == '|')
+                {
+                    if(sqr)
+                    result = result.Substring(0, result.IndexOf('*'));                    
+                }
+                else
                 result = result.Substring(0,result.Length-1) +"|";
                 others = others.Substring(0, others.Length - 1) + ")";
                 if(sqr && oth)

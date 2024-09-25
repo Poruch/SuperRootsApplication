@@ -74,6 +74,8 @@ namespace SuperRootsApplication
         public static List<string> errorCalculate = new List<string>() { "Такое программа посчитать не может", "The program cannot calculate this" };
         public static List<string> errorLoadLanguage = new List<string>() { "Ошибка в количестве строк в языковом файле", "Error in the number of lines in the language file" };
 
+        public static List<string> version = new List<string>() { "Версия", "Version" };
+        public static List<string> developers = new List<string>() { "Разработчики:", "Developers:" };
         private void button1_Click(object sender, EventArgs e)
         {
             if (!(checkBox1.Checked || check.Checked))
@@ -81,7 +83,7 @@ namespace SuperRootsApplication
                 bool real = double.TryParse(textBox1.Text, out double re);              
                 if (real)
                 {
-                    label6.Text = RootCalculator.Sqrt(re, trackBar1.Value).ToString();
+                    textBox3.Text = RootCalculator.Sqrt(re, trackBar1.Value).ToString();
                 }
             }
             else if (check.Checked) {
@@ -90,11 +92,11 @@ namespace SuperRootsApplication
                 {
                     Error error = new Error(res);
                     error.ShowDialog(this);
-                    label6.Text = "";
+                    textBox3.Text = "";
                 }
                 else
                 {
-                    label6.Text = $"{res}";
+                    textBox3.Text = $"{res}";
                 }                
             }
             else if (checkBox1.Checked) {
@@ -102,22 +104,30 @@ namespace SuperRootsApplication
                 bool image = double.TryParse(textBox2.Text, out double im);
                 if (real && image)
                 {
-                    var t = RootCalculator.ISqrt(re, im, trackBar1.Value);                    
-                    label6.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
+                    if(re == 0 && im == 0)
+                    {
+                        textBox3.Text = "0";
+                    }
+                    else
+                    {
+                        var t = RootCalculator.ISqrt(re, im, trackBar1.Value);
+                        textBox3.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
+                    }
+                    
                 }
                 else if (real)
                 {
                     Error error = new Error(errors[Nlanguage]);
                     error.ShowDialog(this);
                     var t = RootCalculator.ISqrt(re, 0, trackBar1.Value);
-                    label6.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
+                    textBox3.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
                 }
                 else if (image)
                 {
                     Error error = new Error(errors[Nlanguage]);
                     error.ShowDialog(this);
                     var t = RootCalculator.ISqrt(0, im, trackBar1.Value);
-                    label6.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
+                    textBox3.Text = "+/-(" + t.Item1.ToString() + "+" + t.Item2.ToString() + "i)";
                 }
                 if (!real && !image)
                 {
@@ -231,7 +241,7 @@ namespace SuperRootsApplication
         about_the_program about_the_program;
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            about_the_program = new about_the_program();
+            about_the_program = new about_the_program(version[Nlanguage], developers[Nlanguage]);
             about_the_program.Show();
         }
         users_guide users_guide;
@@ -415,6 +425,14 @@ namespace SuperRootsApplication
                             error.ShowDialog(this);
                             return;
                         }
+                        version.Add(reader.ReadLine());
+                        if (reader.EndOfStream)
+                        {
+                            Error error = new Error(errorLoadLanguage[Nlanguage]);
+                            error.ShowDialog(this);
+                            return;
+                        }
+                        developers.Add(reader.ReadLine());
 
                         Nlanguage = file.Count - 1;
                     }
@@ -440,18 +458,25 @@ namespace SuperRootsApplication
             f.WriteLine(language[1]);
             f.WriteLine(help[1]);
             f.WriteLine(answer[1]);
-            f.WriteLine(isqrtRe[1]);
+
+            f.WriteLine(sqrt[1]);
+
             f.WriteLine(isqrtRe[1]);
             f.WriteLine(isqrtIm[1]);
             f.WriteLine(ANALsqrt[1]);
             f.WriteLine(analyticalRoots[1]);
             f.WriteLine(complexRoots[1]);
             f.WriteLine(accuracy[1]);
+
             f.WriteLine(errorNonNumber[1]);
             f.WriteLine(errorFormat[1]);
             f.WriteLine(errors[1]);
             f.WriteLine(errorCalculate[1]);
             f.WriteLine(errorLoadLanguage[1]);
+
+
+            f.WriteLine(version[1]);
+            f.WriteLine(developers[1]);
             f.Flush();
             f.Close();
         }

@@ -94,7 +94,6 @@
             this.Controls.Add(this.label1);
             this.Name = "about_the_program";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "about_the_program";
             this.Load += new System.EventHandler(this.about_the_program_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -86,6 +86,13 @@ namespace SuperRootsApplication
                 if (real)
                 {
                     textBox3.Text = RootCalculator.Sqrt(re, trackBar1.Value).ToString();
+
+                }
+                else
+                {
+                    textBox3.Text = RootCalculator.Sqrt(re, trackBar1.Value).ToString();
+                    Error error = new Error(errorNonNumber[Nlanguage]);
+                    error.ShowDialog(this);
                 }
             }
             else if (check.Checked) {
